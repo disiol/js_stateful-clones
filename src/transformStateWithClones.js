@@ -7,7 +7,7 @@
  * @return {Object[]}
  */
 function transformStateWithClones(state, actions) {
-  const stateHistory = []; // Масив для збереження історії станів
+  const stateHistory = [];
   const newState = { ...state }; // Копія початкового стану
 
   for (const action of actions) {
