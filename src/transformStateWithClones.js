@@ -11,13 +11,15 @@ function transformStateWithClones(state, actions) {
   const newState = { ...state }; // Копія початкового стану
 
   for (const action of actions) {
-    switch (action.type) {
+    const { type, extraData, keysToRemove } = action; // Деструктуризація
+
+    switch (type) {
       case 'addProperties':
-        addProperties(newState, action.extraData);
+        addProperties(newState, extraData);
         break;
 
       case 'removeProperties':
-        removeProperties(newState, action.keysToRemove);
+        removeProperties(newState, keysToRemove);
         break;
 
       case 'clear':
